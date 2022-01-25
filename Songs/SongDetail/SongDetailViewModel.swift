@@ -10,18 +10,29 @@ import SwiftUI
 
 class SongDetailViewModel: ObservableObject {
     
-    @Published var favoritesSong = Song()
+    @Published var favoritesSong: Song
     @Published var isAdded = false
     
-    init(with song:Song){}
+    init(with song:Song){
+        favoritesSong = song
+    }
     
-//    func addSongsFromFavorites(with song: Song) {
-//        let res = DBManager.shared.addFavSong(by: song.objectID)
-//        
-//        switch res {
-//            case .failure: return
-//            case .success(let result): self.isAdded = result
-//        }
-//    }
+    func addSongsFromFavorites(with song: Song) {
+        let res = DBManager.shared.addFavSong(by: song.objectID)
+        
+        switch res {
+            case .failure: return
+            case .success(let result): self.isAdded = result
+        }
+    }
+    
+    func removeSongsFromFavorites(with song: Song) {
+        let res = DBManager.shared.deleteFavSong(by: song.objectID)
+        
+        switch res {
+            case .failure: return
+            case .success(let result): self.isAdded = result
+        }
+    }
     
 }

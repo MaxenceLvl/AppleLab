@@ -43,6 +43,17 @@ struct SongDetailView: View {
                         .resizable()
                         .foregroundColor(.white)
                         .frame(width: 30, height: 30)
+                        .onTapGesture {
+                            viewModel.removeSongsFromFavorites(with: viewModel.favoritesSong)
+                        }
+                } else {
+                    Image(systemName: "heart")
+                        .resizable()
+                        .foregroundColor(.white)
+                        .frame(width: 30, height: 30)
+                        .onTapGesture {
+                            viewModel.addSongsFromFavorites(with: viewModel.favoritesSong)
+                        }
                 }
             }
             .padding(.leading, 20)
