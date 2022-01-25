@@ -25,6 +25,7 @@
 		8786D5A9279C38BB0023B830 /* AddArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786D5A8279C38BA0023B830 /* AddArtistViewModel.swift */; };
 		8786D5AB279C3EBF0023B830 /* ArtistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786D5AA279C3EBF0023B830 /* ArtistsView.swift */; };
 		8786D5AD279C3FF20023B830 /* ArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786D5AC279C3FF20023B830 /* ArtistsViewModel.swift */; };
+		8786D5AF27A05C4C0023B830 /* SongDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8786D5AE27A05C4C0023B830 /* SongDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		8786D5A8279C38BA0023B830 /* AddArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArtistViewModel.swift; sourceTree = "<group>"; };
 		8786D5AA279C3EBF0023B830 /* ArtistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsView.swift; sourceTree = "<group>"; };
 		8786D5AC279C3FF20023B830 /* ArtistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewModel.swift; sourceTree = "<group>"; };
+		8786D5AE27A05C4C0023B830 /* SongDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				8746BDFC2798244C000AE24C /* SongDetailView.swift */,
+				8786D5AE27A05C4C0023B830 /* SongDetailViewModel.swift */,
 			);
 			path = SongDetail;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8786D5AF27A05C4C0023B830 /* SongDetailViewModel.swift in Sources */,
 				8746BDFD2798244C000AE24C /* SongDetailView.swift in Sources */,
 				8746BE0827984738000AE24C /* AddSongViewModel.swift in Sources */,
 				8746BDEB27981992000AE24C /* Songs.xcdatamodeld in Sources */,

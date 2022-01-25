@@ -36,6 +36,8 @@ struct ArtistsView: View {
                                 .onTapGesture {
                                     self.selection = artist
                                 }
+                            }.onDelete { offsets in
+                                viewModel.deleteArtist(at: offsets)
                             }
                         }
                         .listStyle(.insetGrouped)

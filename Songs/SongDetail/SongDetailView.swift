@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct SongDetailView: View {
-    var song: Song
+    @ObservedObject private var viewModel: SongDetailViewModel
+    
+    init(vm: SongDetailViewModel) {
+        self.viewModel = vm
+    }
     
     var body: some View {
         VStack {
-            if let url = song.coverURL {
+            if let url = viewModel.favoritesSong.coverURL {
                 AsyncImage(
                     url: url,
                     content: { image in
@@ -28,22 +32,28 @@ struct SongDetailView: View {
                 
             }
             HStack(alignment: .center) {
-                if let title = song.title {
+                if let title = viewModel.favoritesSong.title {
                     Text(title)
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                 }
                 Spacer()
-                ShowRatingView(rating: Int(song.rate))
+                if viewModel.favoritesSong.isFavorite != false {
+                    Image(systemName: "heart.fill")
+                        .resizable()
+                        .foregroundColor(.white)
+                        .frame(width: 30, height: 30)
+                }
             }
-            .padding(.horizontal, 15)
-            if let firstName = song.artist?.firstName, let lastName = song.artist?.lastName {
+            .padding(.leading, 20)
+            .padding(.trailing, 45)
+            if let firstName = viewModel.favoritesSong.artist?.firstName, let lastName = viewModel.favoritesSong.artist?.lastName {
                 Text("\(firstName) \(lastName)")
                     .foregroundColor(.white)
                     .fontWeight(.bold)
                     .padding(.top, 10)
             }
-            if let lyrics = song.lyrics {
+            if let lyrics = viewModel.favoritesSong.lyrics {
                 Text("\(lyrics)")
                     .foregroundColor(.white)
                     .font(Font.system(size: 16).italic())

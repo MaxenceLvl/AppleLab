@@ -79,6 +79,19 @@ struct DBManager {
         
     }
     
+    func addFavSong(by id: NSManagedObjectID) -> Result<Bool, Error> {
+        let context = container.viewContext
+        
+        do {
+            let song = try context.existingObject(with: id)
+            song.setValue(true, forKey: "isFavorite")
+            try context.save()
+            return .success(true)
+        } catch {
+            return .failure(error)
+        }
+    }
+    
     func getFavSongs() -> Result<[Song], Error> {
         let fetchRequest = Song.fetchRequest()
         let descriptor: NSSortDescriptor = NSSortDescriptor(key: "releaseDate", ascending: true)
@@ -223,6 +236,21 @@ struct DBManager {
             return .failure(error)
         }
         
+    }
+    
+    @discardableResult
+    func deleteArtist(by id: NSManagedObjectID) -> Result<Void, Error> {
+        let context = container.viewContext
+        
+        do {
+            let artist = try context.existingObject(with: id)
+            context.delete(artist)
+            try context.save()
+            
+            return .success(())
+        } catch {
+            return .failure(error)
+        }
     }
     
 }

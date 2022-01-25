@@ -21,7 +21,8 @@ struct SongsView: View {
                     }
                 } else {
                     ForEach(viewModel.songs) { song in
-                        NavigationLink(destination: SongDetailView(song: song)) {
+                        let songDetailViewModel = SongDetailViewModel(with: song)
+                        NavigationLink(destination: SongDetailView(vm: songDetailViewModel)) {
                             HStack {
                                 if let title = song.title {
                                     Text(title)

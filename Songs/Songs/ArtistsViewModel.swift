@@ -24,4 +24,11 @@ class ArtistsViewModel: ObservableObject {
         case .success(let artists): self.artists = artists
         }
     }
+    
+    func deleteArtist(at offsets: IndexSet) {
+        offsets.forEach { index in
+            DBManager.shared.deleteArtist(by: artists[index].objectID)
+        }
+        artists.remove(atOffsets: offsets)
+    }
 }
